@@ -1,0 +1,9 @@
+# tooling
+node_modules/
+tools/output/
+package-lock.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
