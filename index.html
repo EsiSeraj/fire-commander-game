@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FireCommander</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="command-panel" aria-label="FireCommander controls">
+        <div>
+          <p class="eyebrow">Dual robot response simulator</p>
+          <h1>FireCommander</h1>
+        </div>
+
+        <div class="difficulty-group" aria-label="Difficulty">
+          <button class="difficulty active" data-difficulty="easy" type="button">Easy</button>
+          <button class="difficulty" data-difficulty="moderate" type="button">Moderate</button>
+          <button class="difficulty" data-difficulty="hard" type="button">Hard</button>
+        </div>
+
+        <div class="automation-group" aria-label="Automation options">
+          <button class="automation-toggle" id="autoPerceptionBtn" type="button" aria-pressed="false">
+            Automate Perception Agent
+          </button>
+          <button class="automation-toggle" id="autoActionBtn" type="button" aria-pressed="false">
+            Automate Action Agent
+          </button>
+        </div>
+
+        <div class="stats-grid" aria-live="polite">
+          <div>
+            <span>Time</span>
+            <strong id="timeLeft">00:00</strong>
+          </div>
+          <div>
+            <span>Known Fires</span>
+            <strong id="knownFires">0</strong>
+          </div>
+          <div>
+            <span>Active Fires</span>
+            <strong id="activeFires">0</strong>
+          </div>
+          <div>
+            <span>Water Used</span>
+            <strong id="waterUsed">0</strong>
+          </div>
+        </div>
+
+        <div class="robot-status">
+          <div class="robot-line drone">
+            <span class="robot-icon" aria-hidden="true">P</span>
+            <div>
+              <strong>Perception robot</strong>
+              <span id="dronePosition">0,0</span>
+            </div>
+          </div>
+          <div class="robot-line rover">
+            <span class="robot-icon" aria-hidden="true">A</span>
+            <div>
+              <strong>Action robot</strong>
+              <span id="roverPosition">0,0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="message" id="message">Mission initializing.</div>
+
+        <div class="mission-actions">
+          <button class="primary-action" id="startBtn" type="button">Start Mission</button>
+          <button class="secondary-action" id="resetBtn" type="button">Reset</button>
+        </div>
+      </section>
+
+      <section class="field-section" aria-label="Game board">
+        <div class="terrain-frame">
+          <div class="terrain" id="terrain" role="application" aria-label="FireCommander terrain"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
