@@ -1,0 +1,16 @@
+FireCommander
+Copyright 2020-2026 Esmaeil Seraj
+
+This product includes software developed by Esmaeil Seraj
+(https://github.com/EsiSeraj/fire-commander-game). It is a playable
+descendant of the FireCommander research environment:
+
+  Seraj, E., Wu, X., Gombolay, M. C. "FireCommander: An Interactive,
+  Probabilistic Multi-agent Environment for Heterogeneous Robot Teams."
+  arXiv:2011.00165, 2020. https://arxiv.org/abs/2011.00165
+  https://github.com/EsiSeraj/FireCommander2020
+
+Redistributions and derivative works must retain this notice. Playable
+versions, ports and derivatives of the game should carry a visible credit
+to Esmaeil Seraj with a link to the repository above. Research that uses
+the game or the environment should cite the FireCommander paper.

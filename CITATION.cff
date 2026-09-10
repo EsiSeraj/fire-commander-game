@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use FireCommander in research, please cite the original environment paper (preferred-citation below) and link to this repository."
+title: "FireCommander"
+type: software
+authors:
+  - family-names: Seraj
+    given-names: Esmaeil
+repository-code: "https://github.com/EsiSeraj/fire-commander-game"
+license: Apache-2.0
+keywords:
+  - multi-agent reinforcement learning
+  - learning from demonstration
+  - heterogeneous robot teams
+  - wildfire
+  - game
+preferred-citation:
+  type: article
+  title: "FireCommander: An Interactive, Probabilistic Multi-agent Environment for Heterogeneous Robot Teams"
+  authors:
+    - family-names: Seraj
+      given-names: Esmaeil
+    - family-names: Wu
+      given-names: Xiyang
+    - family-names: Gombolay
+      given-names: Matthew C.
+  journal: "arXiv preprint arXiv:2011.00165"
+  year: 2020
+  url: "https://arxiv.org/abs/2011.00165"

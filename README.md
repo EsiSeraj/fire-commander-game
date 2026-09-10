@@ -4,6 +4,8 @@ A browser game about a two-robot wildfire response team. A **perception robot** 
 
 Plain HTML, CSS and JavaScript. No dependencies, no build step, runs from a folder.
 
+The game is under active development (see the [roadmap](#roadmap)), and it doubles as a compact domain for multi-agent learning research — see [FireCommander as a research domain](#firecommander-as-a-research-domain).
+
 <p align="center">
   <img src="docs/screenshots/mission.png" alt="A Moderate mission in progress: the perception robot has just marked two fires in the top-right corner while the action robot works its way there; hatched cells are stale intel." width="100%">
 </p>
@@ -32,7 +34,9 @@ Plain HTML, CSS and JavaScript. No dependencies, no build step, runs from a fold
 - [Difficulty](#difficulty)
 - [Project layout](#project-layout)
 - [Development](#development)
-- [Ideas on the shelf](#ideas-on-the-shelf)
+- [FireCommander as a research domain](#firecommander-as-a-research-domain)
+- [Roadmap](#roadmap)
+- [License and credit](#license-and-credit)
 
 ## Play
 
@@ -136,6 +140,8 @@ launch_game.py              zero-dependency local server (ports 8000–8999), op
 Play FireCommander.command  macOS double-click launcher
 tools/                      headless test and screenshot scripts (Playwright)
 docs/screenshots/           images used in this README
+LICENSE, NOTICE             Apache 2.0 license and the attribution notice to keep with any copy
+CITATION.cff                citation metadata (GitHub's "Cite this repository")
 ```
 
 ## Development
@@ -161,9 +167,56 @@ Each simulated mission runs about two minutes of game time, so keep `N` modest p
 
 `window.FireCommander` exposes the live state and configuration in the browser console for poking at.
 
-## Ideas on the shelf
+## FireCommander as a research domain
 
-A sensing radius for **P** (it currently sees only its own cell), touch controls for the mobile layout, sound, a selectable partner skill level, and a daily map.
+Under the game is a heterogeneous multi-agent problem: a *perception-only* agent and an *action-only* agent with different action and observation spaces, partial observability that decays over time, a stochastic environment, and a joint reward that neither agent can earn alone. That makes it a natural testbed for **multi-agent reinforcement learning (MARL)** — learned communication, coordination and role specialization — and for **multi-agent learning from demonstration (MA-LfD)**, where the human-playable interface produces demonstrations of exactly the kind of coordination a team should learn.
+
+This game is a playable descendant of the FireCommander research environment I built for that purpose:
+
+- **Paper:** E. Seraj, X. Wu, M. C. Gombolay. *FireCommander: An Interactive, Probabilistic Multi-agent Environment for Heterogeneous Robot Teams.* arXiv:2011.00165, 2020. [[arXiv]](https://arxiv.org/abs/2011.00165)
+- **Original environment (research-only):** [github.com/EsiSeraj/FireCommander2020](https://github.com/EsiSeraj/FireCommander2020) — the MARL/LfD package with Python environments, GUI and demonstration tooling.
+
+A sample of my own work that uses FireCommander:
+
+- E. Seraj, Z. Wang, R. Paleja, D. Martin, M. Sklar, A. Patel, M. Gombolay. *Learning Efficient Diverse Communication for Cooperative Heterogeneous Teaming.* AAMAS 2022, pp. 1173–1182. [[pdf]](https://ifaamas.org/Proceedings/aamas2022/pdfs/p1173.pdf)
+- E. Seraj, Z. Wang, R. Paleja, M. Sklar, A. Patel, M. Gombolay. *Heterogeneous Graph Attention Networks for Learning Diverse Communication.* arXiv:2108.09568, 2021. [[arXiv]](https://arxiv.org/abs/2108.09568)
+- E. Seraj, J. Xiong, M. Schrum, M. Gombolay. *Mixed-Initiative Multiagent Apprenticeship Learning for Human Training of Robot Teams.* NeurIPS 2023. [[pdf]](https://proceedings.neurips.cc/paper_files/paper/2023/file/6f5288d7059cbe3f5a19dad1b3bf17e1-Paper-Conference.pdf)
+- E. Seraj, R. Paleja, L. Pimentel, K. M. Lee, Z. Wang, D. Martin, M. Sklar, J. Zhang, Z. Kakish, M. Gombolay. *Heterogeneous Policy Networks for Composite Robot Team Communication and Coordination.* IEEE Transactions on Robotics (T-RO); arXiv:2606.20962, 2026. [[arXiv]](https://arxiv.org/abs/2606.20962)
+
+If you use this game or the environment in research, please cite the FireCommander paper (BibTeX under [License and credit](#license-and-credit)).
+
+## Roadmap
+
+I'm actively developing this game. Coming up next:
+
+- **Arcade mode**
+- **Strategy mode**
+- **3D visualization**
+- **More game rules and restrictions**
+
+Smaller items on the list: a sensing radius for **P** (it currently sees only its own cell), touch controls for the mobile layout, sound, a selectable partner skill level, and a daily map.
+
+## License and credit
+
+FireCommander is released under the **Apache License 2.0** — see [`LICENSE`](LICENSE). Reuse is welcome: fork it, remix it, build on it, use it in your research. Just preserve my authorship credit :)
+
+Concretely:
+
+1. **Keep the attribution.** Redistributions and derivative works must retain the [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE) files and the copyright notice, as the license requires.
+2. **Playable versions show a credit.** If you publish a playable version, port or derivative of this game, include a visible credit to *Esmaeil Seraj* with a link to this repository somewhere players can see it (a title screen, an about panel, or a footer).
+3. **Research cites the paper.** If you use the game or its environment in a paper, thesis or report, cite the FireCommander paper:
+
+```bibtex
+@article{seraj2020firecommander,
+  title   = {FireCommander: An Interactive, Probabilistic Multi-agent Environment for Heterogeneous Robot Teams},
+  author  = {Seraj, Esmaeil and Wu, Xiyang and Gombolay, Matthew C.},
+  journal = {arXiv preprint arXiv:2011.00165},
+  year    = {2020},
+  url     = {https://arxiv.org/abs/2011.00165}
+}
+```
+
+The repository also ships a [`CITATION.cff`](CITATION.cff), so GitHub's "Cite this repository" button gives you the same reference.
 
 ---
 
